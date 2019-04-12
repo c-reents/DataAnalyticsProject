@@ -1,0 +1,289 @@
+---
+output: 
+  pdf_document:
+    keep_tex: yes
+    fig_caption: yes
+    number_sections: yes
+geometry: margin=2.54cm
+title: Chemical Effects on Mammals
+subtitle: https://github.com/c-reents/Environmental_Data_Analytics
+author: Caroline Reents
+abstract: "Experimental overview. This section should be no longer than 250 words."
+fontsize: 12pt
+mainfont: Times New Roman
+---
+
+<Information in these brackets are used for annotating the RMarkdown file. They will not appear in the final version of the PDF document>
+
+\newpage
+\tableofcontents 
+\newpage
+\listoftables 
+\newpage
+\listoffigures 
+\newpage
+
+<Setup the global options for the R chunks in your document>
+
+<Note: set up autoreferencing for figures and tables in your document>
+
+```{r setup, echo=FALSE}
+# Set your working directory
+getwd()
+setwd("/Users/carolinereents/Desktop/Data Analytics/EnvironmentalDataAnalytics/Resources")
+# Load your packages
+library(tidyverse)
+library(readr)
+library(viridis)
+library(RColorBrewer)
+
+# Set your ggplot theme
+mytheme <- theme_classic(base_size = 14) +
+  theme(axis.text = element_text(color = "black"), 
+        legend.position = "top")
+theme_set(mytheme)
+
+
+#upload the data set
+Mammal_dat_RAW <- read.csv("./Data/Raw/ECOTOX_Mammals_RAW.csv")
+```
+
+
+# Research Question and Rationale
+
+<Paragraph detailing the rationale for your analysis. What is the significant application and/or interest in this topic? Connect to environmental topic(s)/challenge(s).>
+
+<Paragraph detailing your research question(s) and goals. What do you want to find out? Include a sentence (or a few) on the dataset you are using to answer this question - just enough to give your reader an idea of where you are going with the analysis.>
+
+\newpage
+
+# Dataset Information
+
+<Information on how the dataset for this analysis were collected, the data contained in the dataset, and any important pieces of information that are relevant to your analyses. This section should contain much of same information as the README file for the dataset but formatted in a way that is more narrative.>
+
+The following is a list of all chemicals tested in this data set pulled from the ECOTOX webpage. Each data point is the result of a study, so each data point seen on visualizations represents the findings of one or a group of researchers. 
+
+The data was pulled filtering for mammals, effects of mortality, all endpoints, and chemical subgrooup "pharmaceutical personal care products". The drugs tested in this data set were: 
+
+- 17alpha-ethynylestradiol : used in BC
+- 6-mercaptopurine : used for cancer and autoimmune
+- Ampicillin - antibiotic
+- Betamethasone - steroid
+- Clindamyacin - antibiotic
+- Dexamethasone - steroid
+- Dexamethasone sodium - steroid
+- Diazepam - pain killer
+- Dimenhydrinate - motion sickness
+- Erythomycin - antibiotic
+- Gentamycin - antibiotic
+- Lindane - treats scabies
+- Methimazole - treats hyperthyroid
+- Methotrexate - cancer autoimmune treatment 
+- Metronidazole - antibiotic
+- Phenobarbital - sedative
+- Prednisone - steroid
+- Propranolol - beta-blocker
+- Tetracycline - antibiotic
+- Tetracycline hydrochloride - antibiotic
+- Thalidomide - cancer treeatment
+- Trans-Retinoic acid - cancer
+- Triamcinolone - treats inflammation
+- Warfarin - prevents blood clots  
+
+It is important to note that the endpoints were defined as follows: 
+
+* EC10, EC50: effective concentration to x % of test organisms
+* ET50: effective response time to 50 % of test organisms
+* LC0 through LC95: lethal concentration to x % of test organisms
+* LD50, LD95, LD99: lethal dose to x % of test organisms
+* LOEC: lowest observable effect concentration
+* LOEL: lowest observable effect level
+* LT50: time to 50 % mortality of organisms
+* NOEC: no observable effect concentration
+* NOEL: no observable effect level
+* NR: not reported
+* NR-LETH: 100 % mortality or 0 % survival of test organisms
+* NR-ZERO: 0 % mortality or 100 % survival of test organisms
+
+<Add a table that summarizes your data structure. This table can be made in markdown text or inserted as a `kable` function in an R chunk. If the latter, do not include the code used to generate your table.>
+
+\newpage
+
+# Exploratory Data Analysis and Wrangling
+
+<Include R chunks for 5+ lines of summary code (display code and output), 3+ exploratory graphs (display graphs only), and any wrangling you do to your dataset(s).> 
+```{r summary}
+#summary code
+colnames(Mammal_dat_RAW)
+class(Mammal_dat_RAW$Pub..Year)
+summary(Mammal_dat_RAW$Common.Name)
+
+summary(Mammal_dat_RAW$Chemical.Name)
+class(Mammal_dat_RAW$Chemical.Name)
+#Thalidomide and warfarin have most data points
+
+class(Mammal_dat_RAW$Conc..Mean..Std.)
+Mammal_dat_RAW$Conc..Mean..Std.<- as.integer(Mammal_dat_RAW$Conc..Mean..Std.)
+#changed cancentration to an integer rather than numeric
+
+summary(Mammal_dat_RAW$Pub..Year)
+Mammal_dat_RAW$Pub..Year<-as.factor(Mammal_dat_RAW$Pub..Year)
+summary(Mammal_dat_RAW$Pub..Year)
+#treated this as a factor so that I could see how many studies took place in each year
+
+summary(Mammal_dat_RAW$Endpoint)
+class(Mammal_dat_RAW$Endpoint)
+```
+
+
+```{r wrangling}
+ECOTOX_LethZero <- Mammal_dat_RAW %>%
+  filter(Endpoint == "NR-LETH" | Endpoint =="NR-ZERO")
+
+ECOTOX_Lethal <- Mammal_dat_RAW %>%
+  filter(Endpoint == "NR-LETH")
+
+
+
+class(ECOTOX_LethZero$Endpoint)
+ECOTOX_LethZero$Endpoint<-as.character(ECOTOX_LethZero$Endpoint)
+
+summary(Mammal_dat_RAW$Chemical.Name)
+
+ECOTOX_antibiotics<- Mammal_dat_RAW %>%
+  filter(Chemical.Name == "Ampicillin"| 
+           Chemical.Name == "Clindamycin"| 
+           Chemical.Name =="Gentamycin"|
+           Chemical.Name ==  "Metronidazole"|
+           Chemical.Name == "Erythromycin"|
+           Chemical.Name == "Tetracycline"|
+           Chemical.Name == "Tetracycline hydrochloride")
+View(ECOTOX_antibiotics)
+
+
+
+#wrangle the data to only have the three most commonly studied organisms
+
+Three_dat <- Mammal_dat_RAW %>%
+  filter(Common.Name == "Afghan Pika" | Common.Name == "Norway Rat" | Common.Name =="House Mouse")
+
+
+
+#wrangle data to combine endpoints categories = 0, 50, 100
+
+
+Three_dat_mutateMortality<-mutate(Three_dat, Mortality.Rate = ifelse(Three_dat$Endpoint=="LD50", "Lethal", "Not Lethal"),
+                                  ifelse(Three_dat$Endpoint=="LOEL", "Not Lethal", "Lethal"),
+                                  ifelse(Three_dat$Endpoint=="NOEL", "Not Lethal", "Lethal"),
+                                  ifelse(Three_dat$Endpoint=="NR-LETH", "Lethal", "Not Lethal"),
+                                  ifelse(Three_dat$Endpoint=="NR-ZERO", "Not Lethal", "Lethal"))
+
+
+```
+
+
+```{r, echo=FALSE}
+Explore1<-ggplot(Mammal_dat_RAW, aes(x = Chemical.Name, y = Common.Name)) + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(x="Chemical Name", y="Species")+
+  geom_point()
+print(Explore1)
+```
+
+```{r, echo=FALSE}
+Explore2<- ggplot(Mammal_dat_RAW, aes(x = Chemical.Name, y = Endpoint)) + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(x="Chemical Name", y="Effect")+
+  geom_point()
+print(Explore2)
+```
+
+```{r, echo=FALSE} 
+
+Explore3<- ggplot(ECOTOX_Lethal, aes(x = Endpoint, y = Conc..Mean..Std.)) +
+  ylim(0, 150)+
+  labs(x="Effect on Mortality", y="Concentration")+
+  geom_boxplot(aes(color=Chemical.Name))+
+  theme(legend.position = "right")
+
+  
+print(Explore3)  
+  
+  
+```
+
+
+
+
+
+
+<Include text sections to accompany these R chunks to explain the reasoning behind your workflow, and the rationale for your approach.>
+
+
+\newpage
+
+# Analysis
+<Include R chunks for 3+ statistical tests (display code and output) and 3+ final visualization graphs (display graphs only).>
+```{r statistical tests} 
+
+```
+
+```{r visualization 1}
+Visualization1<- ggplot(ECOTOX_antibiotics, aes(Common.Name, Endpoint)) + 
+                          geom_point()
+
+print(Visualization1)
+
+ggplot(ECOTOX_antibiotics, aes(Common.Name, Chemical.Name)) +
+  geom_raster(aes(fill = Endpoint), hjust=0.5,
+vjust=0.5, interpolate=FALSE)
+
+ggplot(ECOTOX_antibiotics, aes(fill=Endpoint, y=, x=Chemical.Name)) + 
+    geom_bar(position="dodge", stat="identity")
+```
+```{r}
+#plot endpoint effects for cancer medicine vs antibiotics
+
+```
+
+```{r, echo=FALSE}
+#take the three most studied animals and compare frequency of each endpoint associated with that organism colored by chemical name 
+
+
+
+
+Visualization2 <- ggplot(Three_dat, aes(Endpoint,))+
+  geom_bar(stat = "count", position = "stack", aes(fill=Common.Name))+
+  labs(x="Effect on Mortality", y="Number of Studies", fill="Species Exposed")+
+  scale_fill_manual(values=c("orchid1", "khaki1", "turquoise2"))+
+  theme(legend.position = "right")
+
+print(Visualization2)
+
+
+
+
+Visualization3 <- ggplot(Three_dat_mutateMortality, aes(Mortality.Rate,))+
+  geom_bar(stat = "count", position = "stack", aes(fill=Common.Name))+
+  labs(x="Effect on Mortality", y="Number of Studies", fill="Species Exposed")+
+  scale_fill_manual(values=c("orchid1", "khaki1", "turquoise2"))+
+  theme(legend.position = "right")
+
+print(Visualization3)
+#wrangle data to have a "drug class" column : "cancer treatment", "antibiotics", "other"
+  
+
+```
+
+
+
+<Include text sections to accompany these R chunks to explain the reasoning behind your workflow, rationale for your approach, and the justification of meeting or failing to meet assumptions of tests.>
+
+
+\newpage
+
+# Summary and Conclusions
+<Summarize your major findings from your analyses. What conclusions do you draw from your findings? Make sure to apply this to a broader application for the research question you have answered.>
+
+
+
