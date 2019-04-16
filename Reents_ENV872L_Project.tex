@@ -143,7 +143,20 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-Experimental overview. This section should be no longer than 250 words.
+Data for this study was collected through the EPA ECOTOX database. Data
+was specifically filtered for effects on mortality, mammals, and
+chemical subgroup pharmaceutical personal care products. This study aims
+to determine if different pharmaceutical drugs have different mortality
+effects for different mammalian species. It also aims to determine if
+drug class is associated with differing mortality rates. Multiple
+findings came from these analyses. First species tested was related to
+the effects on mortality seen, so different organisms reacted to
+chemicals differently. It is also clear that different drug classes are
+associated with different mortality outcomes. Finally, I also found that
+concentration was not associated with different mortality outcomes.
+These findings have implications in the environmental field, because
+through the development of new drugs, waterways are becoiming more and
+more contaminated with pharmaceutical chemicals.
 \end{abstract}
 
 \newpage
@@ -186,6 +199,16 @@ document\textgreater{}
 
 \section{Research Question and
 Rationale}\label{research-question-and-rationale}
+
+Many pharmaceutical chemicals get put into rivers and streams when they
+qare excreted from a human body that takes them (americanrivers.org).
+USGS has found that most streams contain 7 pharmaceutical chemicals in
+them at all times (americanrivers.org). Many animals are exposed to
+these sources of water and therefore any chemicals within them. Because
+of this phenomenon, I thought it would be interesting to see if
+different types of drugs effected small mammals differently. With these
+drugss becoming more and more prolific in waters across the nation, this
+will increasingly become an issue.
 
 This data set includes the effects of certain pharmaceutical or health
 care drugs or chemicals on the mortality of various mammals. Each data
@@ -294,210 +317,19 @@ It is important to note that the endpoints were defined as follows:
   NR-ZERO: 0 \% mortality or 100 \% survival of test organisms
 \end{itemize}
 
-\begin{verbatim}
-## \begin{table}[H]
-## \centering
-## \begin{tabular}{r|l|l|l|l|l|l|l|r|l|r|l|r|l}
-## \hline
-## CAS.No. & Chemical.Name & Drug.Class & Species.Name & Common.Name & Effect & Measurement & Endpoint & Dur..Std. & Conc..Type & Conc..Mean..Std. & Conc..Units..Std. & Pub..Year & Citation\\
-## \hline
-## 57636 & 17alpha-Ethinylestradiol & Other & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 140.0000 & Active ingredient & 0.001 & AI mg/kg bdwt & 2014 & Jin,Y., X. Lin, W. Miao, T. Wu, H. Shen, S. Chen, Y. Li, Q. Pan, and Z. Fu. Chronic Exposure of Mice to Environmental Endocrine-Disrupting Chemicals Disturbs Their Energy Metabolism. Toxicol. Lett.225(3): 392-400, 2014. ECOREF \#165341\\
-## \hline
-## 50442 & 6-Mercaptopurine & Anti-cancer & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NOEL & 16.0000 & Formulation & 5.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 50442 & 6-Mercaptopurine & Anti-cancer & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NR-ZERO & 16.0000 & Formulation & 5.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 69534 & Ampicillin & Antibiotic & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NR-ZERO & 16.0000 & Formulation & 50.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 69534 & Ampicillin & Antibiotic & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NOEL & 16.0000 & Formulation & 100.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 69534 & Ampicillin & Antibiotic & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & LOEL & 16.0000 & Formulation & 200.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 378449 & Betamethasone & Other & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NOEL & 16.0000 & Formulation & 25.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 378449 & Betamethasone & Other & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NR-ZERO & 16.0000 & Formulation & 25.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 18323449 & Clindamycin & Antibiotic & Mesocricetus auratus & Golden Hamster & Mortality & Mortality & NR-LETH & 19.0000 & Formulation & 3.000 & AI mg/kg bdwt & 1978 & Bartlett,J.G., T.W. Chang, N. Moon, and A.B. Onderdonk. Antibiotic-Induced Lethal Enterocolitis in Hamsters: Studies with Eleven Agents and Evidence to Support the Pathogenic Role of Toxin-Producing Clostridia. Am. J. Vet. Res.39(9): 1525-1530, 1978. ECOREF \#161529\\
-## \hline
-## 50022 & Dexamethasone & Other & Rattus norvegicus & Norway Rat & Mortality & Mortality & NR-ZERO & 5.0000 & Formulation & 0.600 & AI mg/kg bdwt & 2014 & Rogers,J.M., R.G. Ellis-Hutchings, B.E. Grey, R.M. Zucker, J.,Jr. Norwood, C.E. Grace, C.J. Gordon, and C. Lau. Elevated Blood Pressure in Offspring of Rats Exposed to Diverse Chemicals During Pregnancy. Toxicol. Sci.137(2): 436-446, 2014. ECOREF \#166444\\
-## \hline
-## 50022 & Dexamethasone & Other & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 28.0000 & Formulation & 2.000 & AI mg/kg bdwt & 2013 & Badgujar,P.C., S.K. Jain, A. Singh, J.S. Punia, R.P. Gupta, and G.A. Chandratre. Immunotoxic Effects of Imidacloprid Following 28 Days of Oral Exposure in BALB/c Mice. Environ. Toxicol. Pharmacol.35(3): 408-418, 2013. ECOREF \#169034\\
-## \hline
-## 50022 & Dexamethasone & Other & Mus musculus & House Mouse & Mortality & Mortality & NOEL & 12.0000 & Formulation & 20.000 & AI mg/kg bdwt & 1987 & Kavlock,R.J., R.D.,Jr. Short, and N. Chernoff. Further Evaluation of an In Vivo Teratology Screen. Teratog. Carcinog. Mutagen.7(1): 7-16, 1987. ECOREF \#70488\\
-## \hline
-## 50022 & Dexamethasone & Other & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 12.0000 & Formulation & 20.000 & AI mg/kg bdwt & 1987 & Kavlock,R.J., R.D.,Jr. Short, and N. Chernoff. Further Evaluation of an In Vivo Teratology Screen. Teratog. Carcinog. Mutagen.7(1): 7-16, 1987. ECOREF \#70488\\
-## \hline
-## 50022 & Dexamethasone & Other & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NOEL & 16.0000 & Formulation & 100.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 2392394 & Dexamethasone sodium phosphate & Other & Macropus eugenii & Tammar Wallaby & Mortality & Mortality & NR & 0.9375 & Formulation & 4000.000 & AI mg/kg bdwt & 1996 & Shaw,G., M.B. Renfree, and T.P. Fletcher. A Role for Glucocorticoids in Parturition in a Marsupial, Macropus eugenii. Biol. Reprod.54(3): 728-733, 1996. ECOREF \#168070\\
-## \hline
-## 2392394 & Dexamethasone sodium phosphate & Other & Macropus eugenii & Tammar Wallaby & Mortality & Mortality & NR & 0.9542 & Formulation & 4000.000 & AI mg/kg bdwt & 1996 & Shaw,G., M.B. Renfree, and T.P. Fletcher. A Role for Glucocorticoids in Parturition in a Marsupial, Macropus eugenii. Biol. Reprod.54(3): 728-733, 1996. ECOREF \#168070\\
-## \hline
-## 2392394 & Dexamethasone sodium phosphate & Other & Macropus eugenii & Tammar Wallaby & Mortality & Mortality & NR & 0.9625 & Formulation & 4000.000 & AI mg/kg bdwt & 1996 & Shaw,G., M.B. Renfree, and T.P. Fletcher. A Role for Glucocorticoids in Parturition in a Marsupial, Macropus eugenii. Biol. Reprod.54(3): 728-733, 1996. ECOREF \#168070\\
-## \hline
-## 439145 & Diazepam & Other & Peromyscus maniculatus & Deer Mouse & Mortality & Mortality & LD50 & 3.0000 & Active ingredient & 1070.000 & AI mg/kg bdwt & 1985 & Schafer,E.W.,Jr., and W.A.,Jr. Bowles. Acute Oral Toxicity and Repellency of 933 Chemicals to House and Deer Mice. Arch. Environ. Contam. Toxicol.14(1): 111-129, 1985. ECOREF \#35426\\
-## \hline
-## 523875 & Dimenhydrinate & Other & Rattus norvegicus & Norway Rat & Mortality & Mortality & NOEL & 24.0000 & Formulation & 75.000 & AI mg/kg food & 1965 & McColl,J.D., M. Globus, and S. Robinson. Effect of Some Therapeutic Agents on the Developing Rat Fetus. Toxicol. Appl. Pharmacol.7:409-417, 1965. ECOREF \#158823\\
-## \hline
-## 114078 & Erythromycin & Antibiotic & Mesocricetus auratus & Golden Hamster & Mortality & Mortality & NR-LETH & 19.0000 & Formulation & 5.000 & AI mg/kg bdwt & 1978 & Bartlett,J.G., T.W. Chang, N. Moon, and A.B. Onderdonk. Antibiotic-Induced Lethal Enterocolitis in Hamsters: Studies with Eleven Agents and Evidence to Support the Pathogenic Role of Toxin-Producing Clostridia. Am. J. Vet. Res.39(9): 1525-1530, 1978. ECOREF \#161529\\
-## \hline
-## 1403663 & Gentamycin & Antibiotic & Mesocricetus auratus & Golden Hamster & Mortality & Mortality & NR-LETH & 19.0000 & Formulation & 1.000 & AI mg/kg bdwt & 1978 & Bartlett,J.G., T.W. Chang, N. Moon, and A.B. Onderdonk. Antibiotic-Induced Lethal Enterocolitis in Hamsters: Studies with Eleven Agents and Evidence to Support the Pathogenic Role of Toxin-Producing Clostridia. Am. J. Vet. Res.39(9): 1525-1530, 1978. ECOREF \#161529\\
-## \hline
-## 58899 & Lindane & Other & Ovis aries & Domestic Sheep & Mortality & Mortality & NR & 252.0000 & Formulation & 1.000 & AI mg/kg bdwt & 1999 & Beard,A.P., P.M. Bartlewski, and N.C. Rawlings. Endocrine and Reproductive Function in Ewes Exposed to the Organochlorine Pesticides Lindane or Pentachlorophenol. J. Toxicol. Environ. Health Part A56(1): 23-46, 1999. ECOREF \#61477\\
-## \hline
-## 60560 & Methimazole & Other & Rattus norvegicus & Norway Rat & Mortality & Mortality & NR-ZERO & 0.6667 & Active ingredient & 1125.000 & AI mg/kg bdwt & 2006 & Mattioli,F., A. Martelli, M. Gosmar, C. Garbero, V. Manfredi, E. Varaldo, G.C. Torre, and G. Brambilla. DNA Fragmentation and DNA Repair Synthesis Induced in Rat and Human Thyroid Cells by Chemicals Carcinogenic to the Rat Thyroid. Mutat. Res.609(2): 146-153, 2006. ECOREF \#90296\\
-## \hline
-## 59052 & Methotrexate & Anti-cancer & Mus musculus & House Mouse & Mortality & Mortality & NOEL & 12.0000 & Formulation & 50.000 & AI mg/kg bdwt & 1987 & Kavlock,R.J., R.D.,Jr. Short, and N. Chernoff. Further Evaluation of an In Vivo Teratology Screen. Teratog. Carcinog. Mutagen.7(1): 7-16, 1987. ECOREF \#70488\\
-## \hline
-## 443481 & Metronidazole & Anti-cancer & Mesocricetus auratus & Golden Hamster & Mortality & Mortality & NR-ZERO & 19.0000 & Formulation & 7.500 & AI mg/kg bdwt & 1978 & Bartlett,J.G., T.W. Chang, N. Moon, and A.B. Onderdonk. Antibiotic-Induced Lethal Enterocolitis in Hamsters: Studies with Eleven Agents and Evidence to Support the Pathogenic Role of Toxin-Producing Clostridia. Am. J. Vet. Res.39(9): 1525-1530, 1978. ECOREF \#161529\\
-## \hline
-## 50066 & Phenobarbital & Other & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 8.0833 & Formulation & 100.000 & AI mg/kg bdwt & 1987 & Ketterman,A.J., S.M. Pond, and C.E. Becker. The Effects of Differential Induction of Cytochrome P-450, Carboxylesterase and Glutathione S-Transferase Activities on Malathion Toxicity in Mice. Toxicol. Appl. Pharmacol.87(3): 389-392, 1987. ECOREF \#88919\\
-## \hline
-## 50066 & Phenobarbital & Other & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 175.0000 & Formulation & 500.000 & AI mg/L & 1999 & Umemura,T., S. Kai, R. Hasegawa, K. Sai, Y. Kurokawa, and G.M. Williams. Pentachlorophenol (PCP) Produces Liver Oxidative Stress and Promotes but does not Initiate Hepatocarcinogenesis in B6C3F1 Mice. Carcinogenesis20(6): 1115-1120, 1999. ECOREF \#61493\\
-## \hline
-## 50066 & Phenobarbital & Other & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 175.0000 & Formulation & 500.000 & AI mg/L & 1999 & Umemura,T., S. Kai, R. Hasegawa, K. Sai, Y. Kurokawa, and G.M. Williams. Pentachlorophenol (PCP) Produces Liver Oxidative Stress and Promotes but does not Initiate Hepatocarcinogenesis in B6C3F1 Mice. Carcinogenesis20(6): 1115-1120, 1999. ECOREF \#61493\\
-## \hline
-## 50066 & Phenobarbital & Other & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 203.0000 & Formulation & 500.000 & AI mg/L & 1999 & Umemura,T., S. Kai, R. Hasegawa, K. Sai, Y. Kurokawa, and G.M. Williams. Pentachlorophenol (PCP) Produces Liver Oxidative Stress and Promotes but does not Initiate Hepatocarcinogenesis in B6C3F1 Mice. Carcinogenesis20(6): 1115-1120, 1999. ECOREF \#61493\\
-## \hline
-## 53032 & Prednisone & Other & Mus musculus & House Mouse & Mortality & Mortality & NOEL & 12.0000 & Formulation & 20.000 & AI mg/kg bdwt & 1987 & Kavlock,R.J., R.D.,Jr. Short, and N. Chernoff. Further Evaluation of an In Vivo Teratology Screen. Teratog. Carcinog. Mutagen.7(1): 7-16, 1987. ECOREF \#70488\\
-## \hline
-## 53032 & Prednisone & Other & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 12.0000 & Formulation & 20.000 & AI mg/kg bdwt & 1987 & Kavlock,R.J., R.D.,Jr. Short, and N. Chernoff. Further Evaluation of an In Vivo Teratology Screen. Teratog. Carcinog. Mutagen.7(1): 7-16, 1987. ECOREF \#70488\\
-## \hline
-## 525666 & Propranolol & Other & Microtus pennsylvanicus & Meadow Vole & Mortality & Mortality & NR & 84.0000 & Formulation & 250.000 & AI mg/L & 1991 & Rosati,M.A. Non-Stressful Methods of Controlling Melatonin Levels in Meadow Voles (Microtus pennsylvanicus). M.S. Thesis, Eastern Michigan University, MI:51 p. , 1991. ECOREF \#163780\\
-## \hline
-## 60548 & Tetracycline & Antibiotic & Mesocricetus auratus & Golden Hamster & Mortality & Mortality & NR-ZERO & 19.0000 & Formulation & 5.000 & AI mg/kg bdwt & 1978 & Bartlett,J.G., T.W. Chang, N. Moon, and A.B. Onderdonk. Antibiotic-Induced Lethal Enterocolitis in Hamsters: Studies with Eleven Agents and Evidence to Support the Pathogenic Role of Toxin-Producing Clostridia. Am. J. Vet. Res.39(9): 1525-1530, 1978. ECOREF \#161529\\
-## \hline
-## 60548 & Tetracycline & Antibiotic & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NR-ZERO & 16.0000 & Formulation & 25.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 60548 & Tetracycline & Antibiotic & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NOEL & 16.0000 & Formulation & 75.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 60548 & Tetracycline & Antibiotic & Rattus norvegicus & Norway Rat & Mortality & Mortality & NR-ZERO & 3.0000 & Formulation & 85.000 & AI mg/kg bdwt & 1965 & Steiner,G., W. Bradford, and J.M. Craig. Tetracycline-Induced Abortion in the Rat. Lab. Invest.14(8): 1456-1463, 1965. ECOREF \#102461\\
-## \hline
-## 60548 & Tetracycline & Antibiotic & Rattus norvegicus & Norway Rat & Mortality & Mortality & NR-ZERO & 4.0000 & Formulation & 85.000 & AI mg/kg bdwt & 1965 & Steiner,G., W. Bradford, and J.M. Craig. Tetracycline-Induced Abortion in the Rat. Lab. Invest.14(8): 1456-1463, 1965. ECOREF \#102461\\
-## \hline
-## 60548 & Tetracycline & Antibiotic & Rattus norvegicus & Norway Rat & Mortality & Mortality & NR-ZERO & 5.0000 & Formulation & 85.000 & AI mg/kg bdwt & 1965 & Steiner,G., W. Bradford, and J.M. Craig. Tetracycline-Induced Abortion in the Rat. Lab. Invest.14(8): 1456-1463, 1965. ECOREF \#102461\\
-## \hline
-## 60548 & Tetracycline & Antibiotic & Rattus norvegicus & Norway Rat & Mortality & Mortality & NR-ZERO & 6.0000 & Formulation & 85.000 & AI mg/kg bdwt & 1965 & Steiner,G., W. Bradford, and J.M. Craig. Tetracycline-Induced Abortion in the Rat. Lab. Invest.14(8): 1456-1463, 1965. ECOREF \#102461\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 7.0000 & Formulation & 160.000 & AI mg/kg bdwt & 1964 & Tubaro,E., M. Barletta, and F. Banci. Some Pharmacological Aspects of a New Water-Soluble Tetracycline. J. Pharm. Pharmacol.16:33-37, 1964. ECOREF \#102444\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Rattus norvegicus & Norway Rat & Mortality & Mortality & LD50 & 14.0000 & Formulation & 300.000 & AI mg/kg bdwt & 1967 & Greenberger,N.J., R.L. Perkins, F.E. Cuppage, and R.D. Ruppert. Severe Metabolic Acidosis in the Rat Induced by Toxic Doses of Tetracycline. Proc. Soc. Exp. Biol. Med.125(4): 1194-1197, 1967. ECOREF \#102368\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 2.0000 & Formulation & 327.000 & AI mg/kg bdwt & 1976 & Wivagg,R.T., J.M. Jaffe, and J.L. Colaizzi. Influence of pH and Route of Injection on Acute Toxicity of Tetracycline in Mice. J. Pharm. Sci.65(6): 916-918, 1976. ECOREF \#102649\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 7.0000 & Formulation & 340.000 & AI mg/kg bdwt & 1964 & Tubaro,E., M. Barletta, and F. Banci. Some Pharmacological Aspects of a New Water-Soluble Tetracycline. J. Pharm. Pharmacol.16:33-37, 1964. ECOREF \#102444\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 2.0000 & Formulation & 366.000 & AI mg/kg bdwt & 1976 & Wivagg,R.T., J.M. Jaffe, and J.L. Colaizzi. Influence of pH and Route of Injection on Acute Toxicity of Tetracycline in Mice. J. Pharm. Sci.65(6): 916-918, 1976. ECOREF \#102649\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 2.0000 & Formulation & 377.000 & AI mg/kg bdwt & 1976 & Wivagg,R.T., J.M. Jaffe, and J.L. Colaizzi. Influence of pH and Route of Injection on Acute Toxicity of Tetracycline in Mice. J. Pharm. Sci.65(6): 916-918, 1976. ECOREF \#102649\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 2.0000 & Formulation & 415.000 & AI mg/kg bdwt & 1976 & Wivagg,R.T., J.M. Jaffe, and J.L. Colaizzi. Influence of pH and Route of Injection on Acute Toxicity of Tetracycline in Mice. J. Pharm. Sci.65(6): 916-918, 1976. ECOREF \#102649\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 2.0000 & Formulation & 475.000 & AI mg/kg bdwt & 1976 & Wivagg,R.T., J.M. Jaffe, and J.L. Colaizzi. Influence of pH and Route of Injection on Acute Toxicity of Tetracycline in Mice. J. Pharm. Sci.65(6): 916-918, 1976. ECOREF \#102649\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 2.0000 & Formulation & 485.000 & AI mg/kg bdwt & 1976 & Wivagg,R.T., J.M. Jaffe, and J.L. Colaizzi. Influence of pH and Route of Injection on Acute Toxicity of Tetracycline in Mice. J. Pharm. Sci.65(6): 916-918, 1976. ECOREF \#102649\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Rattus norvegicus & Norway Rat & Mortality & Mortality & NOEL & 24.0000 & Formulation & 500.000 & AI mg/kg food & 1965 & McColl,J.D., M. Globus, and S. Robinson. Effect of Some Therapeutic Agents on the Developing Rat Fetus. Toxicol. Appl. Pharmacol.7:409-417, 1965. ECOREF \#158823\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Rattus norvegicus & Norway Rat & Mortality & Mortality & NR-ZERO & 1.0000 & Formulation & 600.000 & AI mg/kg bdwt & 1966 & Tapp,E., and B. Lowe. Tetracycline Toxicity in Haemoglobinuria. Br. Med. J. (Clin. Res. Ed.)1(5480): 143-144, 1966. ECOREF \#102358\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 2.0000 & Formulation & 623.000 & AI mg/kg bdwt & 1976 & Wivagg,R.T., J.M. Jaffe, and J.L. Colaizzi. Influence of pH and Route of Injection on Acute Toxicity of Tetracycline in Mice. J. Pharm. Sci.65(6): 916-918, 1976. ECOREF \#102649\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 2.0000 & Formulation & 651.000 & AI mg/kg bdwt & 1976 & Wivagg,R.T., J.M. Jaffe, and J.L. Colaizzi. Influence of pH and Route of Injection on Acute Toxicity of Tetracycline in Mice. J. Pharm. Sci.65(6): 916-918, 1976. ECOREF \#102649\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 2.0000 & Formulation & 652.000 & AI mg/kg bdwt & 1976 & Wivagg,R.T., J.M. Jaffe, and J.L. Colaizzi. Influence of pH and Route of Injection on Acute Toxicity of Tetracycline in Mice. J. Pharm. Sci.65(6): 916-918, 1976. ECOREF \#102649\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 2.0000 & Formulation & 657.000 & AI mg/kg bdwt & 1976 & Wivagg,R.T., J.M. Jaffe, and J.L. Colaizzi. Influence of pH and Route of Injection on Acute Toxicity of Tetracycline in Mice. J. Pharm. Sci.65(6): 916-918, 1976. ECOREF \#102649\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 2.0000 & Formulation & 673.000 & AI mg/kg bdwt & 1976 & Wivagg,R.T., J.M. Jaffe, and J.L. Colaizzi. Influence of pH and Route of Injection on Acute Toxicity of Tetracycline in Mice. J. Pharm. Sci.65(6): 916-918, 1976. ECOREF \#102649\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 2.0000 & Formulation & 681.000 & AI mg/kg bdwt & 1976 & Wivagg,R.T., J.M. Jaffe, and J.L. Colaizzi. Influence of pH and Route of Injection on Acute Toxicity of Tetracycline in Mice. J. Pharm. Sci.65(6): 916-918, 1976. ECOREF \#102649\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 60.0000 & Formulation & 830.000 & AI mg/kg bdwt & 1964 & Tubaro,E., M. Barletta, and F. Banci. Some Pharmacological Aspects of a New Water-Soluble Tetracycline. J. Pharm. Pharmacol.16:33-37, 1964. ECOREF \#102444\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Peromyscus maniculatus & Deer Mouse & Mortality & Mortality & LD50 & 3.0000 & Active ingredient & 1600.000 & AI mg/kg bdwt & 1985 & Schafer,E.W.,Jr., and W.A.,Jr. Bowles. Acute Oral Toxicity and Repellency of 933 Chemicals to House and Deer Mice. Arch. Environ. Contam. Toxicol.14(1): 111-129, 1985. ECOREF \#35426\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 7.0000 & Formulation & 2550.000 & AI mg/kg food & 1964 & Tubaro,E., M. Barletta, and F. Banci. Some Pharmacological Aspects of a New Water-Soluble Tetracycline. J. Pharm. Pharmacol.16:33-37, 1964. ECOREF \#102444\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 91.0000 & Active ingredient & 47870.000 & AI mg/kg food & 1989 & National Toxicology Program. Toxicology and Carcinogenesis Studies of Tetracycline Hydrochloride (CAS No.64-75-5) in F344/N Rats and B6C3F1 Mice (Feed Studies). Natl. Toxicol. Program Tech. Rep. Ser.344:174 p., 1989. ECOREF \#168888\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 91.0000 & Active ingredient & 47870.000 & AI mg/kg food & 1989 & National Toxicology Program. Toxicology and Carcinogenesis Studies of Tetracycline Hydrochloride (CAS No.64-75-5) in F344/N Rats and B6C3F1 Mice (Feed Studies). Natl. Toxicol. Program Tech. Rep. Ser.344:174 p., 1989. ECOREF \#168888\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Rattus norvegicus & Norway Rat & Mortality & Mortality & NR-ZERO & 91.0000 & Active ingredient & 47870.000 & AI mg/kg food & 1989 & National Toxicology Program. Toxicology and Carcinogenesis Studies of Tetracycline Hydrochloride (CAS No.64-75-5) in F344/N Rats and B6C3F1 Mice (Feed Studies). Natl. Toxicol. Program Tech. Rep. Ser.344:174 p., 1989. ECOREF \#168888\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Rattus norvegicus & Norway Rat & Mortality & Mortality & NR-ZERO & 91.0000 & Active ingredient & 47870.000 & AI mg/kg food & 1989 & National Toxicology Program. Toxicology and Carcinogenesis Studies of Tetracycline Hydrochloride (CAS No.64-75-5) in F344/N Rats and B6C3F1 Mice (Feed Studies). Natl. Toxicol. Program Tech. Rep. Ser.344:174 p., 1989. ECOREF \#168888\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 14.0000 & Active ingredient & 50000.000 & AI mg/kg food & 1989 & National Toxicology Program. Toxicology and Carcinogenesis Studies of Tetracycline Hydrochloride (CAS No.64-75-5) in F344/N Rats and B6C3F1 Mice (Feed Studies). Natl. Toxicol. Program Tech. Rep. Ser.344:174 p., 1989. ECOREF \#168888\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 14.0000 & Active ingredient & 50000.000 & AI mg/kg food & 1989 & National Toxicology Program. Toxicology and Carcinogenesis Studies of Tetracycline Hydrochloride (CAS No.64-75-5) in F344/N Rats and B6C3F1 Mice (Feed Studies). Natl. Toxicol. Program Tech. Rep. Ser.344:174 p., 1989. ECOREF \#168888\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Rattus norvegicus & Norway Rat & Mortality & Mortality & NR-ZERO & 14.0000 & Active ingredient & 50000.000 & AI mg/kg food & 1989 & National Toxicology Program. Toxicology and Carcinogenesis Studies of Tetracycline Hydrochloride (CAS No.64-75-5) in F344/N Rats and B6C3F1 Mice (Feed Studies). Natl. Toxicol. Program Tech. Rep. Ser.344:174 p., 1989. ECOREF \#168888\\
-## \hline
-## 64755 & Tetracycline hydrochloride & Antibiotic & Rattus norvegicus & Norway Rat & Mortality & Mortality & NR-ZERO & 14.0000 & Active ingredient & 50000.000 & AI mg/kg food & 1989 & National Toxicology Program. Toxicology and Carcinogenesis Studies of Tetracycline Hydrochloride (CAS No.64-75-5) in F344/N Rats and B6C3F1 Mice (Feed Studies). Natl. Toxicol. Program Tech. Rep. Ser.344:174 p., 1989. ECOREF \#168888\\
-## \hline
-## 50351 & Thalidomide & Anti-cancer & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NOEL & 11.0000 & Formulation & 300.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 50351 & Thalidomide & Anti-cancer & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NOEL & 16.0000 & Formulation & 300.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 50351 & Thalidomide & Anti-cancer & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NR-ZERO & 11.0000 & Formulation & 300.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 50351 & Thalidomide & Anti-cancer & Mus musculus & House Mouse & Mortality & Mortality & LD50 & 10.0000 & Formulation & 305.700 & AI mg/kg bdwt & 1977 & Fickentscher,K., A. Kirfel, G. Will, and F. Kohler. Stereochemical Properties and Teratogenic Activity of Some Tetrahydrophthalimides. Mol. Pharmacol.13(1): 133-141, 1977. ECOREF \#91811\\
-## \hline
-## 50351 & Thalidomide & Anti-cancer & Mus musculus & House Mouse & Mortality & Mortality & NOEL & 5.0000 & Active ingredient & 400.000 & AI mg/kg bdwt & 1984 & Gray,L.E.,Jr., and R.J. Kavlock. An Extended Evaluation of an In Vivo Teratology Screen Utilizing Postnatal Growth and Viability in the Mouse. Teratog. Carcinog. Mutagen.4:403-426, 1984. ECOREF \#65506\\
-## \hline
-## 50351 & Thalidomide & Anti-cancer & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 10.0000 & Formulation & 400.000 & AI mg/kg bdwt & 1977 & Fickentscher,K., A. Kirfel, G. Will, and F. Kohler. Stereochemical Properties and Teratogenic Activity of Some Tetrahydrophthalimides. Mol. Pharmacol.13(1): 133-141, 1977. ECOREF \#91811\\
-## \hline
-## 50351 & Thalidomide & Anti-cancer & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NOEL & 16.0000 & Formulation & 600.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 50351 & Thalidomide & Anti-cancer & Ochotona rufescens ssp. rufescens & Afghan Pika & Mortality & Mortality & NR-ZERO & 16.0000 & Formulation & 600.000 & AI mg/kg bdwt & 1986 & Nishimura,H., K. Shiota, C. Uwabe, and T. Nomura. Joint Study on the Teratogenic Sensitivity of the Pika (Ochotona rufescens rufescens) to Selected Drugs. Exp. Anim.35(4): 387-408, 1986. ECOREF \#102703\\
-## \hline
-## 50351 & Thalidomide & Anti-cancer & Rattus norvegicus & Norway Rat & Mortality & Mortality & LOEL & 24.0000 & Formulation & 1000.000 & AI mg/kg food & 1965 & McColl,J.D., M. Globus, and S. Robinson. Effect of Some Therapeutic Agents on the Developing Rat Fetus. Toxicol. Appl. Pharmacol.7:409-417, 1965. ECOREF \#158823\\
-## \hline
-## 50351 & Thalidomide & Anti-cancer & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 12.0000 & Formulation & 2000.000 & AI mg/kg bdwt & 1982 & Chernoff,N., and R.J. Kavlock. An In Vivo Teratology Screen Utilizing Pregnant Mice. J. Toxicol. Environ. Health10:541-550, 1982. ECOREF \#58855\\
-## \hline
-## 302794 & trans-Retinoic acid & Anti-cancer & Rattus norvegicus & Norway Rat & Mortality & Mortality & NOEL & 7.0000 & Formulation & 250.000 & AI mg/kg bdwt & 1990 & Seegmiller,R.E., M.W. Carter, W.H. Ford, and R.D. White. Induction of Maternal Toxicity in the Rat by Dermal Application of Retinoic Acid and Its Effect on Fetal Outcome. Reprod. Toxicol.4(4): 277-281, 1990. ECOREF \#91170\\
-## \hline
-## 302794 & trans-Retinoic acid & Anti-cancer & Rattus norvegicus & Norway Rat & Mortality & Mortality & NOEL & 8.0000 & Formulation & 250.000 & mg/kg bdwt & 1990 & Seegmiller,R.E., M.W. Carter, W.H. Ford, and R.D. White. Induction of Maternal Toxicity in the Rat by Dermal Application of Retinoic Acid and Its Effect on Fetal Outcome. Reprod. Toxicol.4(4): 277-281, 1990. ECOREF \#91170\\
-## \hline
-## 124947 & Triamcinolone & Other & Mus musculus & House Mouse & Mortality & Mortality & NOEL & 12.0000 & Formulation & 20.000 & AI mg/kg bdwt & 1987 & Kavlock,R.J., R.D.,Jr. Short, and N. Chernoff. Further Evaluation of an In Vivo Teratology Screen. Teratog. Carcinog. Mutagen.7(1): 7-16, 1987. ECOREF \#70488\\
-## \hline
-## 124947 & Triamcinolone & Other & Mus musculus & House Mouse & Mortality & Mortality & NR-ZERO & 12.0000 & Formulation & 20.000 & AI mg/kg bdwt & 1987 & Kavlock,R.J., R.D.,Jr. Short, and N. Chernoff. Further Evaluation of an In Vivo Teratology Screen. Teratog. Carcinog. Mutagen.7(1): 7-16, 1987. ECOREF \#70488\\
-## \hline
-## 81812 & Warfarin & Other & Rattus rattus & Black Rat & Mortality & Mortality & NOEL & 5.0000 & Active ingredient & 2.100 & AI mg/kg food & 1992 & U.S. Environmental Protection Agency. Pesticide Ecotoxicity Database (Formerly:  Environmental Effects Database (EEDB)). Environmental Fate and Effects Division, U.S.EPA, Washington, D.C.:, 1992. ECOREF \#344\\
-## \hline
-## 81812 & Warfarin & Other & Rattus rattus & Black Rat & Mortality & Mortality & NOEL & 5.0000 & Active ingredient & 2.100 & AI mg/kg food & 1992 & U.S. Environmental Protection Agency. Pesticide Ecotoxicity Database (Formerly:  Environmental Effects Database (EEDB)). Environmental Fate and Effects Division, U.S.EPA, Washington, D.C.:, 1992. ECOREF \#344\\
-## \hline
-## 81812 & Warfarin & Other & Rattus rattus & Black Rat & Mortality & Mortality & NOEL & 5.0000 & Active ingredient & 2.100 & AI mg/kg food & 1992 & U.S. Environmental Protection Agency. Pesticide Ecotoxicity Database (Formerly:  Environmental Effects Database (EEDB)). Environmental Fate and Effects Division, U.S.EPA, Washington, D.C.:, 1992. ECOREF \#344\\
-## \hline
-## 81812 & Warfarin & Other & Rattus rattus & Black Rat & Mortality & Mortality & NOEL & 5.0000 & Active ingredient & 2.100 & AI mg/kg food & 1992 & U.S. Environmental Protection Agency. Pesticide Ecotoxicity Database (Formerly:  Environmental Effects Database (EEDB)). Environmental Fate and Effects Division, U.S.EPA, Washington, D.C.:, 1992. ECOREF \#344\\
-## \hline
-## 81812 & Warfarin & Other & Rattus norvegicus & Norway Rat & Mortality & Mortality & NR-LETH & 18.0000 & Formulation & 2.870 & mg/kg bdwt & 1950 & Hayes,W.J.,Jr., and T.B. Gaines. Control of Norway Rats with Residual Rodenticide Warfarin. Public Health Rep.65(47): 1537-1555, 1950. ECOREF \#152847\\
-## \hline
-## 81812 & Warfarin & Other & Neovison vison & American Mink & Mortality & Mortality & NR-ZERO & 30.4400 & Formulation & 3.900 & AI mg/kg food & 1987 & Aulerich,R.J., R.K. Ringer, and J. Safronoff. Primary and Secondary Toxicity of Warfarin, Sodium Monofluoroacetate, and Methyl Parathion in Mink. Arch. Environ. Contam. Toxicol.16(3): 357-366, 1987. ECOREF \#39689\\
-## \hline
-## 81812 & Warfarin & Other & Rattus rattus & Black Rat & Mortality & Mortality & LC50 & 5.0000 & Active ingredient & 4.410 & AI mg/kg food & 1992 & U.S. Environmental Protection Agency. Pesticide Ecotoxicity Database (Formerly:  Environmental Effects Database (EEDB)). Environmental Fate and Effects Division, U.S.EPA, Washington, D.C.:, 1992. ECOREF \#344\\
-## \hline
-## 81812 & Warfarin & Other & Rattus rattus & Black Rat & Mortality & Mortality & LC50 & 5.0000 & Active ingredient & 5.440 & AI mg/kg food & 1992 & U.S. Environmental Protection Agency. Pesticide Ecotoxicity Database (Formerly:  Environmental Effects Database (EEDB)). Environmental Fate and Effects Division, U.S.EPA, Washington, D.C.:, 1992. ECOREF \#344\\
-## \hline
-## 81812 & Warfarin & Other & Rattus rattus & Black Rat & Mortality & Mortality & LC50 & 5.0000 & Active ingredient & 5.910 & AI mg/kg food & 1992 & U.S. Environmental Protection Agency. Pesticide Ecotoxicity Database (Formerly:  Environmental Effects Database (EEDB)). Environmental Fate and Effects Division, U.S.EPA, Washington, D.C.:, 1992. ECOREF \#344\\
-## \hline
-## 81812 & Warfarin & Other & Rattus rattus & Black Rat & Mortality & Mortality & LC50 & 5.0000 & Active ingredient & 6.030 & AI mg/kg food & 1992 & U.S. Environmental Protection Agency. Pesticide Ecotoxicity Database (Formerly:  Environmental Effects Database (EEDB)). Environmental Fate and Effects Division, U.S.EPA, Washington, D.C.:, 1992. ECOREF \#344\\
-## \hline
-## 81812 & Warfarin & Other & Neovison vison & American Mink & Mortality & Mortality & LC50 & 28.0000 & Formulation & 11.700 & AI mg/kg food & 1987 & Aulerich,R.J., R.K. Ringer, and J. Safronoff. Primary and Secondary Toxicity of Warfarin, Sodium Monofluoroacetate, and Methyl Parathion in Mink. Arch. Environ. Contam. Toxicol.16(3): 357-366, 1987. ECOREF \#39689\\
-## \hline
-## 81812 & Warfarin & Other & Neovison vison & American Mink & Mortality & Mortality & NR-LETH & 30.4400 & Formulation & 22.500 & AI mg/kg food & 1987 & Aulerich,R.J., R.K. Ringer, and J. Safronoff. Primary and Secondary Toxicity of Warfarin, Sodium Monofluoroacetate, and Methyl Parathion in Mink. Arch. Environ. Contam. Toxicol.16(3): 357-366, 1987. ECOREF \#39689\\
-## \hline
-## 81812 & Warfarin & Other & Neovison vison & American Mink & Mortality & Mortality & NR-ZERO & 30.4400 & Formulation & 22.500 & AI mg/kg food & 1987 & Aulerich,R.J., R.K. Ringer, and J. Safronoff. Primary and Secondary Toxicity of Warfarin, Sodium Monofluoroacetate, and Methyl Parathion in Mink. Arch. Environ. Contam. Toxicol.16(3): 357-366, 1987. ECOREF \#39689\\
-## \hline
-## 81812 & Warfarin & Other & Rattus exulans & Polynesian Rat & Mortality & Mortality & NR-LETH & 10.0000 & Formulation & 32.600 & AI mg/kg food & 1995 & Koehler,A.E., M.E. Tobin, and R.T. Sugihara. Exploration of Lauric Acid as a Potentiator for Enhancing Warfarin Toxicity to Rats. Int. Biodeterior. Biodegrad.36(1-2): 73-87, 1995. ECOREF \#75471\\
-## \hline
-## 81812 & Warfarin & Other & Cynomys ludovicianus & Black-Tailed Prairie Dog & Mortality & Mortality & LC50 & 15.0000 & Active ingredient & 97.000 & AI mg/kg bdwt & 2002 & Mach,J.J., S.E. Hygnstrom, and R.M. Poche. Laboratory Efficacy Study of Six Concentrations of Warfarin Bait for Black-Tailed Prairie Dogs. Int. Biodeterior. Biodegrad.49:157-162, 2002. ECOREF \#66881\\
-## \hline
-## 81812 & Warfarin & Other & Rattus rattus & Black Rat & Mortality & Mortality & NR-LETH & 30.0000 & Active ingredient & 111.100 & AI mg/kg bdwt & 1987 & Rai,R.S., P. Lal, and P.K. Srivastava. Studies on Comparative Efficacy of Some Anticoagulants in the Laboratory and Field Conditions. Pesticides 21(7): 27-30, 1987. ECOREF \#76002\\
-## \hline
-## \end{tabular}
-## \end{table}
-\end{verbatim}
+\begin{tabular}{lllll}
+\toprule
+\rotatebox{45}{ } & \rotatebox{45}{Chemical.Name} & \rotatebox{45}{Drug.Class} & \rotatebox{45}{Species.Name} & \rotatebox{45}{Common.Name}\\
+\midrule
+2 & 6-Mercaptopurine & Anti-cancer & Ochotona rufescens ssp. rufescens & Afghan Pika\\
+3 & 6-Mercaptopurine & Anti-cancer & Ochotona rufescens ssp. rufescens & Afghan Pika\\
+4 & Ampicillin & Antibiotic & Ochotona rufescens ssp. rufescens & Afghan Pika\\
+5 & Ampicillin & Antibiotic & Ochotona rufescens ssp. rufescens & Afghan Pika\\
+\bottomrule
+\end{tabular}
+
+Note that this table wass to large to fit on the page, so it is
+currently showing rows 2-5 and columns 2-5
 
 \newpage
 
@@ -760,11 +592,13 @@ Wrangling}\label{exploratory-data-analysis-and-wrangling}
 \CommentTok{#wrangle data to combine endpoints categories = 0, 50, 100}
 
 
-\NormalTok{Three_dat_mutateMortality<-}\KeywordTok{mutate}\NormalTok{(Three_dat, }\DataTypeTok{Mortality.Rate =} \KeywordTok{ifelse}\NormalTok{(Three_dat}\OperatorTok{$}\NormalTok{Endpoint}\OperatorTok{==}\StringTok{"LD50"}\NormalTok{, }\StringTok{"Lethal"}\NormalTok{, }\StringTok{"Not Lethal"}\NormalTok{),}
-                                  \KeywordTok{ifelse}\NormalTok{(Three_dat}\OperatorTok{$}\NormalTok{Endpoint}\OperatorTok{==}\StringTok{"LOEL"}\NormalTok{, }\StringTok{"Not Lethal"}\NormalTok{, }\StringTok{"Lethal"}\NormalTok{),}
-                                  \KeywordTok{ifelse}\NormalTok{(Three_dat}\OperatorTok{$}\NormalTok{Endpoint}\OperatorTok{==}\StringTok{"NOEL"}\NormalTok{, }\StringTok{"Not Lethal"}\NormalTok{, }\StringTok{"Lethal"}\NormalTok{),}
-                                  \KeywordTok{ifelse}\NormalTok{(Three_dat}\OperatorTok{$}\NormalTok{Endpoint}\OperatorTok{==}\StringTok{"NR-LETH"}\NormalTok{, }\StringTok{"Lethal"}\NormalTok{, }\StringTok{"Not Lethal"}\NormalTok{),}
-                                  \KeywordTok{ifelse}\NormalTok{(Three_dat}\OperatorTok{$}\NormalTok{Endpoint}\OperatorTok{==}\StringTok{"NR-ZERO"}\NormalTok{, }\StringTok{"Not Lethal"}\NormalTok{, }\StringTok{"Lethal"}\NormalTok{))}
+\NormalTok{Three_dat_mutateMortality<-}\KeywordTok{mutate}\NormalTok{(Three_dat, }
+              \DataTypeTok{Mortality.Rate =} 
+              \KeywordTok{ifelse}\NormalTok{(Three_dat}\OperatorTok{$}\NormalTok{Endpoint}\OperatorTok{==}\StringTok{"LD50"}\NormalTok{, }\StringTok{"Lethal"}\NormalTok{, }\StringTok{"Not Lethal"}\NormalTok{),}
+              \KeywordTok{ifelse}\NormalTok{(Three_dat}\OperatorTok{$}\NormalTok{Endpoint}\OperatorTok{==}\StringTok{"LOEL"}\NormalTok{, }\StringTok{"Not Lethal"}\NormalTok{, }\StringTok{"Lethal"}\NormalTok{),}
+              \KeywordTok{ifelse}\NormalTok{(Three_dat}\OperatorTok{$}\NormalTok{Endpoint}\OperatorTok{==}\StringTok{"NOEL"}\NormalTok{, }\StringTok{"Not Lethal"}\NormalTok{, }\StringTok{"Lethal"}\NormalTok{),}
+              \KeywordTok{ifelse}\NormalTok{(Three_dat}\OperatorTok{$}\NormalTok{Endpoint}\OperatorTok{==}\StringTok{"NR-LETH"}\NormalTok{, }\StringTok{"Lethal"}\NormalTok{, }\StringTok{"Not Lethal"}\NormalTok{),}
+              \KeywordTok{ifelse}\NormalTok{(Three_dat}\OperatorTok{$}\NormalTok{Endpoint}\OperatorTok{==}\StringTok{"NR-ZERO"}\NormalTok{, }\StringTok{"Not Lethal"}\NormalTok{, }\StringTok{"Lethal"}\NormalTok{))}
 
 
 
@@ -799,7 +633,7 @@ assocaited with 100\% mortality}
 
 The first exploratory graph shows which drugs were tested on which
 animals. This helps visualize if each drug was tested on each animal,
-which could effect the results of cetain statistical tests. For the
+which could effect the results of certain statistical tests. For the
 second exploratory figure, I wanted to see which drugs resulted in which
 endpoints. I was particulary interested to see which drugs resulted in
 100\% mortality (NR-LETH). For the third exploratory figure, I
@@ -811,6 +645,96 @@ concentrations.
 \newpage
 
 \section{Analysis}\label{analysis}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{chisq.test}\NormalTok{(}\KeywordTok{table}\NormalTok{(Mammal_dat_RAW}\OperatorTok{$}\NormalTok{Drug.Class, Mammal_dat_RAW}\OperatorTok{$}\NormalTok{Endpoint), }\DataTypeTok{correct =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in chisq.test(table(Mammal_dat_RAW$Drug.Class,
+## Mammal_dat_RAW$Endpoint), : Chi-squared approximation may be incorrect
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test
+## 
+## data:  table(Mammal_dat_RAW$Drug.Class, Mammal_dat_RAW$Endpoint)
+## X-squared = 48.352, df = 12, p-value = 2.714e-06
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{chisq.test}\NormalTok{(}\KeywordTok{table}\NormalTok{(Mammal_dat_RAW}\OperatorTok{$}\NormalTok{Common.Name, Mammal_dat_RAW}\OperatorTok{$}\NormalTok{Endpoint), }\DataTypeTok{correct=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in chisq.test(table(Mammal_dat_RAW$Common.Name,
+## Mammal_dat_RAW$Endpoint), : Chi-squared approximation may be incorrect
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test
+## 
+## data:  table(Mammal_dat_RAW$Common.Name, Mammal_dat_RAW$Endpoint)
+## X-squared = 228.26, df = 66, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mylogit <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(Endpoint }\OperatorTok{~}\StringTok{ }\NormalTok{Conc..Mean..Std., }\DataTypeTok{data =}\NormalTok{ Mammal_dat_RAW, }\DataTypeTok{family =} \StringTok{"binomial"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(mylogit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = Endpoint ~ Conc..Mean..Std., family = "binomial", 
+##     data = Mammal_dat_RAW)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -2.45219   0.00522   0.07686   0.52885   0.61042  
+## 
+## Coefficients:
+##                  Estimate Std. Error z value Pr(>|z|)   
+## (Intercept)       1.58576    0.50945   3.113  0.00185 **
+## Conc..Mean..Std.  0.01413    0.01126   1.255  0.20956   
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 45.016  on 96  degrees of freedom
+## Residual deviance: 35.578  on 95  degrees of freedom
+## AIC: 39.578
+## 
+## Number of Fisher Scoring iterations: 14
+\end{verbatim}
+
+It was difficult to run statistical tests on this data because I was
+working with mostly categorical data. This is why I chose to run chi
+squared tests and a logit glm. While the chi squared test warns that it
+may not be accurate due to sample size, I still ran it and cited it as
+the findings were seen in the visual aides. That said, it is important
+to note that these finidings may nt be statistically significant, which
+is probably because many drugs or species had limited studies done on
+them. I had to use a binomial glm because the dependent variable was
+categorical.
 
 \begin{figure}
 \centering
@@ -855,9 +779,67 @@ with minimal or no effect on the organism.}
 many studies came to the same conclusion.}
 \end{figure}
 
+Figure 4+5: The goal of visualization one and two is to visualize both
+the concentrations of the different drugs associated with the different
+endpoints, but also how many studies were done on that drug. Presumably
+the bigger the dot the more robust that data point because it is based
+off of many studies instead of just one.
+
+Figure 6: The goal here is to briefly visualize the proportion of
+studies that were lethal to which of the three most tested organisms. I
+excluded animals that were not studied as often, so that the results are
+more robust.
+
+Figure 7:The goal of this graph is similar to the previous one, but I
+wanted to visualize the proportion of studies found to be lethal or not
+for each drug class. While it is not based on proportions, it is still a
+good visual to gague how many studies total found each outcome and which
+drugs were tested in those studies.
+
+Figure 8: In this figure I wanted to further break down and see each end
+point seperately. Mainly because there is an important difference from
+50\% mortality to 100\% mortality.
+
 \newpage
 
 \section{Summary and Conclusions}\label{summary-and-conclusions}
+
+Through my statistical tests, I found a few patterns in the data. By
+running a chi squared test to determine the relation between drug class
+and endpoint, I found that the class of drug is related to the endpoint
+(p\textless{}0.05). This means that whether a drug is an antibiotic,
+anti-cancer drug, or ``other'' is associated with the morotality of the
+test organsims. By looking at (Figure 7), you can see that of the
+studies finding lethal effects, most were antibiotics.
+
+Another chi squared test found that the relationship between species
+tested and mortality rates was also significantly associated
+(p\textless{}0.05). This means that certain species experienced
+different effects than others. Of course, this may be just due to the
+fact that each drug was not tested on each organism. By looking at
+(Figure 6), you can see that of the studies that found lethal effects,
+most were tested on the common house mouse.
+
+Through running a logit model, I did find that concentration was not a
+significant predictor of endpoint (p\textgreater{}0.05). Applying this
+to the issue of water contamination, this may mean that concentrations
+will not effect how contamination effects animals. Depending on the drug
+this maay be good or bad. This may mean that small doses of chemicals
+have the same effect as large doses, so while we don't need to worry
+about concentrations getting higher, it is clear that we need to worry
+about the concentrations that are already present. Looking at Figure 4
+you can see that most drugs were test in low concentrations. It is
+interesting to note that the top two most studied drugs had zero
+mortality and the ones that proved lethal had less studies associated
+with them. Loojing at tetracycline hyrdrochloride I find it interesting
+that a lower concentration had the LD50 effect, which indicates 50\%
+mortality, while the higher concentration was associated with zero
+mortality. By loking at Figure 5 you can see that none of the
+anti-cancer drugs caused 100\% mortality, the only lethality was seen in
+one study on Thalidomide (LD50- 50\% mortality). Looking at Figure 8 you
+can see again that antibitics causes the most lethal outcomes. I was
+surprised by these findings, I expected that anti-cancer drugs, like
+Methotrexate would have more lethal effects than antibiotics.
 
 
 \end{document}
