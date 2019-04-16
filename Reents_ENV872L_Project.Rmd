@@ -11,6 +11,8 @@ author: Caroline Reents
 abstract: "Experimental overview. This section should be no longer than 250 words."
 fontsize: 12pt
 mainfont: Times New Roman
+fig_width: 6 
+fig_height: 4 
 ---
 
 <Information in these brackets are used for annotating the RMarkdown file. They will not appear in the final version of the PDF document>
@@ -27,7 +29,7 @@ mainfont: Times New Roman
 
 <Note: set up autoreferencing for figures and tables in your document>
 
-```{r setup, echo=FALSE}
+```{r, setup, echo=FALSE}
 # Set your working directory
 getwd()
 
@@ -38,6 +40,11 @@ library(viridis)
 library(RColorBrewer)
 library(kableExtra)
 
+#devtools::install_github("adletaw/captioner")
+library(captioner)
+
+
+
 # Set your ggplot theme
 mytheme <- theme_classic(base_size = 14) +
   theme(axis.text = element_text(color = "black"), 
@@ -47,6 +54,11 @@ theme_set(mytheme)
 
 #upload the data set
 Mammal_dat_RAW <- read.csv("ECOTOX_Mammals_RAW.csv")
+View(Mammal_dat_RAW)
+
+#setting up autoreferencing 
+table_nums <- captioner(prefix = "Table")
+fig_nums <- captioner()
 ```
 
 
@@ -56,15 +68,17 @@ Mammal_dat_RAW <- read.csv("ECOTOX_Mammals_RAW.csv")
 
 <Paragraph detailing your research question(s) and goals. What do you want to find out? Include a sentence (or a few) on the dataset you are using to answer this question - just enough to give your reader an idea of where you are going with the analysis.>
 
+This data set includes the effects of certain pharmaceutical or health care drugs or chemicals on the mortality of various mammals. Each data point is related to a specific study done on that chemical with a certain mammal. Mortality is measured in various "endpoints" which refer to how much mortality was seen in each study. There are 24 different chemicals in this data set, large groups of these chemicals are either cancer-combating drugs or antibiotics. For this project I aim to determine if different mammals are more suscepitble to death from being exposed to these chemicals, or if mortality is highly dependent on concentration of chemical. I also want to determine if the cancer drugs and the antibiotics differ in their likelihood to cause death. 
+
 \newpage
 
 # Dataset Information
 
 <Information on how the dataset for this analysis were collected, the data contained in the dataset, and any important pieces of information that are relevant to your analyses. This section should contain much of same information as the README file for the dataset but formatted in a way that is more narrative.>
 
-The following is a list of all chemicals tested in this data set pulled from the ECOTOX webpage. Each data point is the result of a study, so each data point seen on visualizations represents the findings of one or a group of researchers. 
+The following is a list of all chemicals tested in this data set pulled from the ECOTOX webpage. Each data point is the result of a study, so each data point seen on visualizations represents the findings of one or a group of researchers published study. 
 
-The data was pulled filtering for mammals, effects of mortality, all endpoints, and chemical subgrooup "pharmaceutical personal care products". The drugs tested in this data set were: 
+The data was pulled filtering for mammals, effects of mortality, all endpoints, and chemical subgroup "pharmaceutical personal care products". The drugs tested in this data set were: 
 
 - 17alpha-ethynylestradiol : used in BC
 - 6-mercaptopurine : used for cancer and autoimmune
@@ -107,11 +121,13 @@ It is important to note that the endpoints were defined as follows:
 * NR-ZERO: 0 % mortality or 100 % survival of test organisms
 
 <Add a table that summarizes your data structure. This table can be made in markdown text or inserted as a `kable` function in an R chunk. If the latter, do not include the code used to generate your table.>
-```{r, echo=FALSE}
+```{r mammal_table, fig.cap= mammal_cap, echo=FALSE}
 mammal_table<-kable(Mammal_dat_RAW)%>%
   kable_styling(bootstrap_options = "striped", full_width = F)
 
 print(mammal_table)
+mammal_cap<-table_nums(name = "DataTable", caption = "Data structure summary.")
+
 
 ```
 
@@ -176,7 +192,7 @@ View(ECOTOX_antibiotics)
 Three_dat <- Mammal_dat_RAW %>%
   filter(Common.Name == "Afghan Pika" | Common.Name == "Norway Rat" | Common.Name =="House Mouse")
 
-
+summary(Mammal_dat_RAW$Chemical.Name)
 
 #wrangle data to combine endpoints categories = 0, 50, 100
 
@@ -188,26 +204,37 @@ Three_dat_mutateMortality<-mutate(Three_dat, Mortality.Rate = ifelse(Three_dat$E
                                   ifelse(Three_dat$Endpoint=="NR-ZERO", "Not Lethal", "Lethal"))
 
 
+
+ECOTOX_cancerdrugs<- Mammal_dat_RAW %>%
+  filter(Chemical.Name == "6-Mercaptopurine"| 
+           Chemical.Name == "Methotrexate"| 
+           Chemical.Name =="Thalidomide"|
+           Chemical.Name =="trans-Retinoic acid")
+
+
+
 ```
 
 
-```{r, echo=FALSE}
+```{r Exploratory 1, fig.cap=E1cap, echo=FALSE}
 Explore1<-ggplot(Mammal_dat_RAW, aes(x = Chemical.Name, y = Common.Name)) + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   labs(x="Chemical Name", y="Species")+
   geom_point()
 print(Explore1)
+E1cap <- fig_nums(name = "Explore1", caption = "Exploratory visualization 1, species tested for each chemcial")
 ```
 
-```{r, echo=FALSE}
+```{r Exploratory 2, fig.cap= E2cap, echo=FALSE}
 Explore2<- ggplot(Mammal_dat_RAW, aes(x = Chemical.Name, y = Endpoint)) + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   labs(x="Chemical Name", y="Effect")+
   geom_point()
 print(Explore2)
+E2cap <- fig_nums(name = "Explore2", caption = "Exploratory visualization 2, endpoint effects for each chemical")
 ```
 
-```{r, echo=FALSE} 
+```{r exploratory 3, fig.cap=E3cap, echo=FALSE} 
 
 Explore3<- ggplot(ECOTOX_Lethal, aes(x = Endpoint, y = Conc..Mean..Std.)) +
   ylim(0, 150)+
@@ -217,16 +244,14 @@ Explore3<- ggplot(ECOTOX_Lethal, aes(x = Endpoint, y = Conc..Mean..Std.)) +
 
   
 print(Explore3)  
-  
+E3cap <- fig_nums(name = "Explore3", caption = "Exploratory visualization 3, concentration of drugs assocaited with 100% mortality")
   
 ```
 
-
-
-
-
-
 <Include text sections to accompany these R chunks to explain the reasoning behind your workflow, and the rationale for your approach.>
+
+The first exploratory graph shows which drugs were tested on which animals. This helps visualize if each drug was tested on each animal, which could effect the results of cetain statistical tests. For the second exploratory figure, I wanted to see which drugs resulted in which endpoints. I was particulary interested to see which drugs resulted in 100% mortality (NR-LETH). For the third exploratory figure, I determined the spread of concentration for the drugs that caused 100% mortality (NR-LETH). I wanted to determine if certain drugs required higher concentrations to kill and if certain drugs killed at multiple concentrations.  
+
 
 
 \newpage
@@ -237,41 +262,44 @@ print(Explore3)
 
 ```
 
-```{r visualization 1}
-Visualization1<- ggplot(ECOTOX_antibiotics, aes(Chemical.Name, Endpoint)) + 
-                          geom_point(aes(size=Conc..Mean..Std., alpha=0.2))+
-                          theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```{r visualization 1, fig.cap= V1cap, echo=FALSE}
+Visualization1<- ggplot(ECOTOX_antibiotics, aes(Chemical.Name, Endpoint)) +
+                          labs(x="Chemical Name", y="Endpoint", 
+                               color="Mean Concentration (mg/kg)", size="Number of Studies")+ 
+                          scale_color_viridis(option="plasma")+
+                          geom_count(aes(color=Conc..Mean..Std.))+
+                          theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+                          legend.position="right",legend.key.size= unit(0.5, "cm"),                            legend.title=element_text(size=10))
+  
 
 print(Visualization1)
 
-ggplot(ECOTOX_antibiotics, aes(Common.Name, Chemical.Name)) +
-  geom_raster(aes(fill = Endpoint), hjust=0.5,
-vjust=0.5, interpolate=FALSE)
 
-
-```
-```{r}
-#plot endpoint effects for cancer medicine vs antibiotics
+V1cap <- fig_nums(name = "Visual1", caption = "Antibiotics and their endpoints based on concentration. Larger dots indicate more studies.")
 
 ```
 
-```{r, echo=FALSE}
-#take the three most studied animals and compare frequency of each endpoint associated with that organism colored by chemical name 
-
-
-
-
-Visualization2 <- ggplot(Three_dat, aes(Endpoint,))+
-  geom_bar(stat = "count", position = "stack", aes(fill=Common.Name))+
-  labs(x="Effect on Mortality", y="Number of Studies", fill="Species Exposed")+
-  scale_fill_manual(values=c("orchid1", "khaki1", "turquoise2"))+
-  theme(legend.position = "right")
+```{r visualization 2, fig.cap= V2cap, echo=FALSE}
+Visualization2<- ggplot(ECOTOX_cancerdrugs, aes(Chemical.Name, Endpoint)) +
+                          labs(x="Chemical Name", y="Endpoint", 
+                               color="Mean Concentration (mg/kg)", size="Number of Studies")+ 
+                          scale_color_viridis(option="plasma")+
+                          geom_count(aes(color=Conc..Mean..Std.), breaks=c(1,2,3,4,5))+
+                          scale_size(breaks=c(1,2,3))+
+                          theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+                          legend.position="right",legend.key.size= unit(0.5, "cm"),                             legend.title=element_text(size=10))
 
 print(Visualization2)
 
+V2cap <- fig_nums(name = "Visual2", caption = "Anti-cancer drugs and their endpoints based on concentration. Larger dots indicate more studies.")
+```
 
 
 
+
+
+
+```{r Visualization3, fig.cap= V3cap, echo=FALSE}
 Visualization3 <- ggplot(Three_dat_mutateMortality, aes(Mortality.Rate,))+
   geom_bar(stat = "count", position = "stack", aes(fill=Common.Name))+
   labs(x="Effect on Mortality", y="Number of Studies", fill="Species Exposed")+
@@ -279,13 +307,45 @@ Visualization3 <- ggplot(Three_dat_mutateMortality, aes(Mortality.Rate,))+
   theme(legend.position = "right")
 
 print(Visualization3)
-#wrangle data to have a "drug class" column : "cancer treatment", "antibiotics", "other"
-  
+
+
+V3cap <- fig_nums(name = "Visual3", caption = "Top three most studied organisms and the number of studies which proved lethal for that organism. 'Lethal' includes LD50 (50% morality) and NR-LETH (100% mortality), 'Not Lethal' includes measures with minimal or no effect on the organism.")
+```
+
+
+
+
+
+
+```{r visualization4, fig.cap= V4cap, echo=FALSE}
+
+Visualization4 <- ggplot(Three_dat_mutateMortality, aes(Mortality.Rate,))+
+  geom_bar(stat = "count", position = "stack", aes(fill=Drug.Class))+
+  labs(x="Effect on Mortality", y="Number of Studies", fill="Drug Class")+
+  scale_fill_manual(values=c("cornflowerblue", "goldenrod1", "gray72"))+
+  theme(legend.position = "right")
+
+print(Visualization4)
+
+V4cap <- fig_nums(name = "Visual4", caption = "Number of studies associated with each drug class and whether or not they proved lethal. Again, 'Lethal' includes LD50 (50% morality) and NR-LETH (100% mortality), 'Not Lethal' includes measures with minimal or no effect on the organism.")
 
 ```
 
-```{r}
-Visualization4<- 
+
+
+
+```{r visualization5, fig.cap=V5cap, echo=FALSE}
+Visualization5<- ggplot(Three_dat_mutateMortality, aes(Endpoint,))+
+  geom_bar(stat = "count", aes(fill= Drug.Class))+
+  labs(x="Endpoint", y="Number of Studies", fill="Drug Class")+
+  scale_fill_manual(values=c("cornflowerblue", "goldenrod1", "gray72"))+
+  facet_grid(Drug.Class~.)+
+   theme(strip.text.y = element_text(angle = 0), legend.position = "none")
+  
+print(Visualization5)
+  
+V5cap <- fig_nums(name = "Visual5", caption = "Endpoint effects of each drug class dependent on how many studies came to the same conclusion.")
+  
 ```
 
 
