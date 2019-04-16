@@ -2,17 +2,15 @@
 output: 
   pdf_document:
     keep_tex: yes
-    fig_caption: yes
+    #fig_caption: yes
     number_sections: yes
 geometry: margin=2.54cm
 title: Chemical Effects on Mammals
 subtitle: https://github.com/c-reents/DataAnalyticsProject
 author: Caroline Reents
-abstract: "Experimental overview. This section should be no longer than 250 words."
+abstract: "Data for this study was collected through the EPA ECOTOX database. Data was specifically filtered for effects on mortality, mammals, and chemical subgroup pharmaceutical personal care products. This study aims to determine if different pharmaceutical drugs have different mortality effects for different mammalian species. It also aims to determine if drug class is associated with differing mortality rates. Multiple findings came from these analyses. First species tested was related to the effects on mortality seen, so different organisms reacted to chemicals differently. It is also clear that different drug classes are associated with different mortality outcomes. Finally, I also found that concentration was not associated with different mortality outcomes. These findings have implications in the environmental field, because through the development of new drugs, waterways are becoiming more and more contaminated with pharmaceutical chemicals."
 fontsize: 12pt
 mainfont: Times New Roman
-fig_width: 6 
-fig_height: 4 
 ---
 
 <Information in these brackets are used for annotating the RMarkdown file. They will not appear in the final version of the PDF document>
@@ -31,6 +29,7 @@ fig_height: 4
 
 ```{r, setup, echo=FALSE}
 # Set your working directory
+
 getwd()
 
 # Load your packages
@@ -65,6 +64,8 @@ fig_nums <- captioner()
 # Research Question and Rationale
 
 <Paragraph detailing the rationale for your analysis. What is the significant application and/or interest in this topic? Connect to environmental topic(s)/challenge(s).>
+
+Many pharmaceutical chemicals get put into rivers and streams when they qare excreted from a human body that takes them (americanrivers.org). USGS has found that most streams contain 7 pharmaceutical chemicals in them at all times (americanrivers.org). Many animals are exposed to these sources of water and therefore any chemicals within them. Because of this phenomenon, I thought it would be interesting to see if different types of drugs effected small mammals differently. With these drugss becoming more and more prolific in waters across the nation, this will increasingly become an issue. 
 
 <Paragraph detailing your research question(s) and goals. What do you want to find out? Include a sentence (or a few) on the dataset you are using to answer this question - just enough to give your reader an idea of where you are going with the analysis.>
 
@@ -121,16 +122,20 @@ It is important to note that the endpoints were defined as follows:
 * NR-ZERO: 0 % mortality or 100 % survival of test organisms
 
 <Add a table that summarizes your data structure. This table can be made in markdown text or inserted as a `kable` function in an R chunk. If the latter, do not include the code used to generate your table.>
-```{r mammal_table, fig.cap= mammal_cap, echo=FALSE}
-mammal_table<-kable(Mammal_dat_RAW)%>%
-  kable_styling(bootstrap_options = "striped", full_width = F)
 
-print(mammal_table)
+
+```{r mammal table, echo=FALSE}
+kable(Mammal_dat_RAW[2:5, 2:5], "latex", booktabs=TRUE) %>%
+  row_spec(0, angle = 45)
+
+
 mammal_cap<-table_nums(name = "DataTable", caption = "Data structure summary.")
 
 
 ```
 
+
+Note that this table wass to large to fit on the page, so it is currently showing rows 2-5 and columns 2-5
 
 \newpage
 
@@ -197,11 +202,13 @@ summary(Mammal_dat_RAW$Chemical.Name)
 #wrangle data to combine endpoints categories = 0, 50, 100
 
 
-Three_dat_mutateMortality<-mutate(Three_dat, Mortality.Rate = ifelse(Three_dat$Endpoint=="LD50", "Lethal", "Not Lethal"),
-                                  ifelse(Three_dat$Endpoint=="LOEL", "Not Lethal", "Lethal"),
-                                  ifelse(Three_dat$Endpoint=="NOEL", "Not Lethal", "Lethal"),
-                                  ifelse(Three_dat$Endpoint=="NR-LETH", "Lethal", "Not Lethal"),
-                                  ifelse(Three_dat$Endpoint=="NR-ZERO", "Not Lethal", "Lethal"))
+Three_dat_mutateMortality<-mutate(Three_dat, 
+              Mortality.Rate = 
+              ifelse(Three_dat$Endpoint=="LD50", "Lethal", "Not Lethal"),
+              ifelse(Three_dat$Endpoint=="LOEL", "Not Lethal", "Lethal"),
+              ifelse(Three_dat$Endpoint=="NOEL", "Not Lethal", "Lethal"),
+              ifelse(Three_dat$Endpoint=="NR-LETH", "Lethal", "Not Lethal"),
+              ifelse(Three_dat$Endpoint=="NR-ZERO", "Not Lethal", "Lethal"))
 
 
 
@@ -216,13 +223,13 @@ ECOTOX_cancerdrugs<- Mammal_dat_RAW %>%
 ```
 
 
-```{r Exploratory 1, fig.cap=E1cap, echo=FALSE}
+```{r Exploratory 1, fig.cap= E1cap, echo=FALSE}
 Explore1<-ggplot(Mammal_dat_RAW, aes(x = Chemical.Name, y = Common.Name)) + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   labs(x="Chemical Name", y="Species")+
   geom_point()
 print(Explore1)
-E1cap <- fig_nums(name = "Explore1", caption = "Exploratory visualization 1, species tested for each chemcial")
+E1cap<-fig_nums(name="Exploratory1", caption = "Exploratory visualization 1, species tested for each chemcial")
 ```
 
 ```{r Exploratory 2, fig.cap= E2cap, echo=FALSE}
@@ -250,7 +257,7 @@ E3cap <- fig_nums(name = "Explore3", caption = "Exploratory visualization 3, con
 
 <Include text sections to accompany these R chunks to explain the reasoning behind your workflow, and the rationale for your approach.>
 
-The first exploratory graph shows which drugs were tested on which animals. This helps visualize if each drug was tested on each animal, which could effect the results of cetain statistical tests. For the second exploratory figure, I wanted to see which drugs resulted in which endpoints. I was particulary interested to see which drugs resulted in 100% mortality (NR-LETH). For the third exploratory figure, I determined the spread of concentration for the drugs that caused 100% mortality (NR-LETH). I wanted to determine if certain drugs required higher concentrations to kill and if certain drugs killed at multiple concentrations.  
+The first exploratory graph shows which drugs were tested on which animals. This helps visualize if each drug was tested on each animal, which could effect the results of certain statistical tests. For the second exploratory figure, I wanted to see which drugs resulted in which endpoints. I was particulary interested to see which drugs resulted in 100% mortality (NR-LETH). For the third exploratory figure, I determined the spread of concentration for the drugs that caused 100% mortality (NR-LETH). I wanted to determine if certain drugs required higher concentrations to kill and if certain drugs killed at multiple concentrations.  
 
 
 
@@ -260,7 +267,22 @@ The first exploratory graph shows which drugs were tested on which animals. This
 <Include R chunks for 3+ statistical tests (display code and output) and 3+ final visualization graphs (display graphs only).>
 ```{r statistical tests} 
 
+chisq.test(table(Mammal_dat_RAW$Drug.Class, Mammal_dat_RAW$Endpoint), correct = FALSE)
+
+chisq.test(table(Mammal_dat_RAW$Common.Name, Mammal_dat_RAW$Endpoint), correct=FALSE)
+
+mylogit <- glm(Endpoint ~ Conc..Mean..Std., data = Mammal_dat_RAW, family = "binomial")
+summary(mylogit)
+
 ```
+
+
+
+
+
+It was difficult to run statistical tests on this data because I was working with mostly categorical data. This is why I chose to run chi squared tests and a logit glm. While the chi squared test warns that it may not be accurate due to sample size, I still ran it and cited it as the findings were seen in the visual aides. That said, it is important to note that these finidings may nt be statistically significant, which is probably because many drugs or species had limited studies done on them. I had to use a binomial glm because the dependent variable was categorical.
+
+
 
 ```{r visualization 1, fig.cap= V1cap, echo=FALSE}
 Visualization1<- ggplot(ECOTOX_antibiotics, aes(Chemical.Name, Endpoint)) +
@@ -294,11 +316,6 @@ print(Visualization2)
 V2cap <- fig_nums(name = "Visual2", caption = "Anti-cancer drugs and their endpoints based on concentration. Larger dots indicate more studies.")
 ```
 
-
-
-
-
-
 ```{r Visualization3, fig.cap= V3cap, echo=FALSE}
 Visualization3 <- ggplot(Three_dat_mutateMortality, aes(Mortality.Rate,))+
   geom_bar(stat = "count", position = "stack", aes(fill=Common.Name))+
@@ -311,11 +328,6 @@ print(Visualization3)
 
 V3cap <- fig_nums(name = "Visual3", caption = "Top three most studied organisms and the number of studies which proved lethal for that organism. 'Lethal' includes LD50 (50% morality) and NR-LETH (100% mortality), 'Not Lethal' includes measures with minimal or no effect on the organism.")
 ```
-
-
-
-
-
 
 ```{r visualization4, fig.cap= V4cap, echo=FALSE}
 
@@ -331,10 +343,7 @@ V4cap <- fig_nums(name = "Visual4", caption = "Number of studies associated with
 
 ```
 
-
-
-
-```{r visualization5, fig.cap=V5cap, echo=FALSE}
+```{r visualization5, fig.cap= V5cap, echo=FALSE}
 Visualization5<- ggplot(Three_dat_mutateMortality, aes(Endpoint,))+
   geom_bar(stat = "count", aes(fill= Drug.Class))+
   labs(x="Endpoint", y="Number of Studies", fill="Drug Class")+
@@ -349,6 +358,22 @@ V5cap <- fig_nums(name = "Visual5", caption = "Endpoint effects of each drug cla
 ```
 
 
+
+
+
+
+
+
+Figure 4+5: The goal of visualization one and two is to visualize both the concentrations of the different drugs associated with the different endpoints, but also how many studies were done on that drug. Presumably the bigger the dot the more robust that data point because it is based off of many studies instead of just one. 
+
+Figure 6: The goal here is to briefly visualize the proportion of studies that were lethal to which of the three most tested organisms. I excluded animals that were not studied as often, so that the results are more robust. 
+
+Figure 7:The goal of this graph is similar to the previous one, but I wanted to visualize the proportion of studies found to be lethal or not for each drug class. While it is not based on proportions, it is still a good visual to gague how many studies total found each outcome and which drugs were tested in those studies.
+
+Figure 8: In this figure I wanted to further break down and see each end point seperately. Mainly because there is an important difference from 50% mortality to 100% mortality. 
+
+
+
 <Include text sections to accompany these R chunks to explain the reasoning behind your workflow, rationale for your approach, and the justification of meeting or failing to meet assumptions of tests.>
 
 
@@ -357,5 +382,8 @@ V5cap <- fig_nums(name = "Visual5", caption = "Endpoint effects of each drug cla
 # Summary and Conclusions
 <Summarize your major findings from your analyses. What conclusions do you draw from your findings? Make sure to apply this to a broader application for the research question you have answered.>
 
-
-
+  Through my statistical tests, I found a few patterns in the data. By running a chi squared test to determine the relation between drug class and endpoint, I found that the class of drug is related to the endpoint (p<0.05). This means that whether a drug is an antibiotic, anti-cancer drug, or "other" is associated with the morotality of the test organsims. By looking at (`r fig_nums("Visual4", display = "cite")`), you can see that of the studies finding lethal effects, most were antibiotics. 
+  
+  Another chi squared test found that the relationship between species tested and mortality rates was also significantly associated (p<0.05). This means that certain species experienced different effects than others. Of course, this may be just due to the fact that each drug was not tested on each organism. By looking at (`r fig_nums("Visual3", display = "cite")`), you can see that of the studies that found lethal effects, most were tested on the common house mouse.  
+  
+  Through running a logit model, I did find that concentration was not a significant predictor of endpoint (p>0.05). Applying this to the issue of water contamination, this may mean that concentrations will not effect how contamination effects animals. Depending on the drug this maay be good or bad. This may mean that small doses of chemicals have the same effect as large doses, so while we don't need to worry about concentrations getting higher, it is clear that we need to worry about the concentrations that are already present. Looking at `r fig_nums("Visual1", display = "cite")` you can see that most drugs were test in low concentrations. It is interesting to note that the top two most studied drugs had zero mortality and the ones that proved lethal had less studies associated with them. Loojing at tetracycline hyrdrochloride I find it interesting that a lower concentration had the LD50 effect, which indicates 50% mortality, while the higher concentration was associated with zero mortality. By loking at `r fig_nums("Visual2", display = "cite")` you can see that none of the anti-cancer drugs caused 100% mortality, the only lethality was seen in one study on Thalidomide (LD50- 50% mortality). Looking at `r fig_nums("Visual5", display = "cite")` you can see again that antibitics causes the most lethal outcomes. I was surprised by these findings, I expected that anti-cancer drugs, like Methotrexate would have more lethal effects than antibiotics.  
